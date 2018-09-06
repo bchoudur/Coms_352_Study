@@ -8,9 +8,9 @@ main(){
   char buf[1024];
   int fd[2];
   pipe(fd); //Creates pipe
-  if(fork() != 0){
+  if(fork() != 0){ //I am parent
     write(fd[1], message, strlen(message)+1);
-  }else{
+  }else{ //Child code
     read(fd[0], buf, 1024);
     printf("Got this from parent!: %s\n", buf);
   }
